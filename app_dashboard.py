@@ -16,7 +16,7 @@ df = load_data("df_streamlit.csv")
 # === 2. Controles de interfaz ===
 st.sidebar.header("⚙️ Configuración del mapa")
 opcion = st.sidebar.selectbox("Selecciona alcaldía (opcional):", ["TODAS"] + sorted(df["alcaldia_hecho"].dropna().unique()))
-tipo_capa = st.sidebar.selectbox("Capas a mostrar:", ["Puntos", "Heatmap"])
+tipo_capa = st.sidebar.multiselect("Capas a mostrar:", ["Puntos", "Heatmap"], default=["Heatmap"])
 num_points = st.sidebar.slider("Número de puntos (muestreo)", 100, 2000, 500, step=100)
 
 # === 3. Filtrado ===
